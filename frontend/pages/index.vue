@@ -2,14 +2,15 @@
   <div>
     <div class="uk-section">
       <div class="uk-container uk-container-large">
-        <h1>{{ homepage.hero.title }}</h1>
-        <Articles :articles="articles" />
+        <h1>Strapi blog</h1>
+        <Articles :articles="articles"></Articles>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import articlesQuery from "~/apollo/queries/article/articles";
 import Articles from "../components/Articles";
 import { getMetaTags } from "../utils/seo";
 import { getStrapiMedia } from "../utils/medias";
@@ -24,6 +25,20 @@ export default {
       homepage: await $strapi.find("homepage"),
       global: await $strapi.find("global"),
     };
+  },
+  data() {
+    return {
+      articles: [],
+    };
+  },
+  apollo: {
+    articles: {
+      prefetch: true,
+      query: articlesQuery,
+      variables() {
+        return { id: parseInt(this.$route.params.id) };
+      },
+    },
   },
   head() {
     const { seo } = this.homepage;

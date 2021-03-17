@@ -2,19 +2,53 @@
   <div>
     <div class="uk-child-width-1-2" uk-grid>
       <div>
-        <ArticleCard
+        <router-link
           v-for="article in leftArticles"
           :key="article.id"
-          :article="article"
-        />
+          :to="{ name: 'articles-id', params: { id: article.id } }"
+          class="uk-link-reset"
+        >
+          <div class="uk-card uk-card-muted">
+            <div v-if="article.image" class="uk-card-media-top">
+              <img :src="api_url + article.image.url" alt="" height="100">
+            </div>
+            <div class="uk-card-body">
+              <p
+                v-if="article.category"
+                id="category"
+                class="uk-text-uppercase"
+              >
+                {{ article.category.name }}
+              </p>
+              <p id="title" class="uk-text-large">{{ article.title }}</p>
+            </div>
+          </div>
+        </router-link>
       </div>
       <div>
         <div class="uk-child-width-1-2@m uk-grid-match" uk-grid>
-          <ArticleCard
+          <router-link
             v-for="article in rightArticles"
             :key="article.id"
-            :article="article"
-          />
+            :to="{ name: 'articles-id', params: { id: article.id } }"
+            class="uk-link-reset"
+          >
+            <div class="uk-card uk-card-muted">
+              <div v-if="article.image" class="uk-card-media-top">
+                <img :src="api_url + article.image.url" alt="" height="100" />
+              </div>
+              <div class="uk-card-body">
+                <p
+                  v-if="article.category"
+                  id="category"
+                  class="uk-text-uppercase"
+                >
+                  {{ article.category.name }}
+                </p>
+                <p id="title" class="uk-text-large">{{ article.title }}</p>
+              </div>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -23,6 +57,7 @@
 
 <script>
 import ArticleCard from "./ArticleCard";
+import articlesQuery from "~/apollo/queries/article/articles";
 
 export default {
   components: {

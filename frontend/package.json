@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",
-    "@nuxtjs/markdownit": "^1.2.7",
+    "@nuxtjs/markdownit": "^2.0.0",
     "@nuxtjs/strapi": "^0.1.6",
     "graphql": "^15.5.0",
     "moment": "^2.29.0",

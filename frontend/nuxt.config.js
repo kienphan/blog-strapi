@@ -31,7 +31,7 @@ export default {
     clientConfigs: {
       default: {
         httpEndpoint:
-          process.env.BACKEND_URL || "http://localhost:1337/graphql"
+          process.env.BACKEND_URL || "http://localhost:1337/graphql",
       },
     },
   },

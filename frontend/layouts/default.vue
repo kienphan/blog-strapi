@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import categoriesQuery from "~/apollo/queries/category/categories";
 export default {
   async fetch() {
     this.categories = await this.$strapi.find("categories");
@@ -80,6 +81,12 @@ export default {
     return {
       categories: [],
     };
+  },
+  apollo: {
+    categories: {
+      prefetch: true,
+      query: categoriesQuery,
+    },
   },
 };
 </script>
