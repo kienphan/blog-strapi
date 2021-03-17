@@ -13,9 +13,10 @@
     "lint:fix": "eslint --ext .js,.vue . --fix"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/markdownit": "^1.2.7",
     "@nuxtjs/strapi": "^0.1.6",
-    "graphql": "^14.5.8",
+    "graphql": "^15.5.0",
     "moment": "^2.29.0",
     "nuxt": "^2.14.6",
     "uikit": "^3.2.3"

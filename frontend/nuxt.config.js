@@ -26,7 +26,15 @@ export default {
     "@assets/css/main.css",
   ],
   plugins: [{ src: "~/plugins/uikit.js", ssr: false }],
-  modules: ["@nuxtjs/markdownit", "@nuxtjs/strapi"],
+  modules: ["@nuxtjs/markdownit", "@nuxtjs/strapi", "@nuxtjs/apollo"],
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint:
+          process.env.BACKEND_URL || "http://localhost:1337/graphql"
+      },
+    },
+  },
   strapi: {
     url: strapiBaseUri,
     entities: [
