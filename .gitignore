@@ -115,3 +115,4 @@ build
 dist
 .nuxt
 .env
+backend/extensions/users-permissions/config/jwt.js
