@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import articleQuery from "~/apollo/queries/article/article";
+import articleQuery from "~/apollo/queries/article/articles";
 var moment = require("moment");
 
 export default {
@@ -30,7 +30,7 @@ export default {
       article: {},
       moment: moment,
       api_url: process.env.strapiBaseUri,
-    }
+    };
   },
   apollo: {
     article: {

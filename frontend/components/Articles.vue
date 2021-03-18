@@ -56,18 +56,17 @@
 </template>
 
 <script>
-import ArticleCard from "./ArticleCard";
-import articlesQuery from "~/apollo/queries/article/articles";
-
 export default {
-  components: {
-    ArticleCard,
-  },
   props: {
     articles: {
       type: Array,
       default: () => [],
     },
+  },
+  data() {
+    return {
+      api_url: process.env.strapiBaseUri,
+    };
   },
   computed: {
     leftArticlesCount() {
